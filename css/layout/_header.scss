@@ -1,0 +1,113 @@
+.header, .footer {
+  color: $blk1;
+  width: 100%;
+  padding: 4.5%;
+  
+  
+  a {
+    color: $blk1;
+    
+    &:hover {
+      color: $blk3;
+      transition: color 750ms ease 250ms;
+    }
+  }
+}
+
+.header {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  svg {
+    width: 95%;
+    will-change: contents;
+
+    path {
+      fill: $blk1;
+      transition: all 750ms ease 250ms;
+
+      &:hover {
+        fill: $blk3;
+      }
+    }
+
+    @media screen and (max-width: 420px) {
+      margin-bottom: -.65em;
+    }
+    
+    @media screen and (max-width: 800px) {
+      margin-bottom: -.35em;
+    }
+
+    
+  }
+
+
+  &--title {
+    font-weight: 900;
+  }
+
+  &--menu {
+    margin-top: 10px;
+    nav li {
+      display: inline;
+      padding: 0 1.8em;
+      font-weight: 700;
+      font-size: 1.2rem;
+
+      @media screen and (max-width: 400px) {
+        padding: 0 1em;
+        font-size: 1em;
+      }
+    }
+
+  }
+
+}
+
+.footer {
+  font-size: .75em;
+
+  &--container {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+
+    @media screen and (min-width: $mobile-lg) {
+      width: 65%;
+    }
+  }
+
+  &--column {
+    text-align: center;
+    padding: 0 1em;
+    ul {
+      list-style: none;
+      a {
+        text-decoration: none;
+      }
+    }
+    flex: 1;
+  }
+
+  &--headline {
+    text-align: left;
+    span {
+      @include tzimmes();
+    }
+    flex: 2 !important;
+    flex-shrink: 0;
+    // margin-bottom: .75em;
+  }
+
+  &--cat {
+    @include small-text;
+  }
+}

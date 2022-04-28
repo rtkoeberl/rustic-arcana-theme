@@ -1,0 +1,95 @@
+// IMPORTS
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Overpass:ital,wght@0,700;0,900;1,700;1,900&display=swap');
+@import url("https://use.typekit.net/wwz6vfl.css");
+
+// RESET
+
+html {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Layout Template
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  scrollbar-width: none;
+  font-family: 'Lato', sans-serif;
+}
+
+// BASIC STYLING
+.body-main {
+  max-width: 65%;
+  min-width: 95%;
+  margin: 2vh auto;  
+  
+  overflow: hidden;
+  position: relative;
+  
+  background-color: $orange;
+  color: $blk1;
+  box-shadow:
+    0 0 0 20px #fff,
+    0 0 1px 20.5px lighten($shadow, 85%),
+    0 40px 100px -50px $shadow;
+  
+
+  // Resize
+  @media screen and (max-width: $mobile-sm) {
+    width: 87.5%;
+    min-width: 500px;
+    margin: 4vh auto;
+    transition: margin 1s, width 1s;
+  }
+
+  @media screen and (min-width: $mobile-lg) {
+    width: 75%;
+    min-width: 680px;
+    margin: 6vh auto;
+    transition: margin 1s, width 1s;
+  }
+
+  @media screen and (min-width: $tablet-sm) {
+    width: 65%;
+    min-width: 750px;
+    margin: 8vh auto;
+    transition: margin 1s, width 1s;
+
+  }
+
+  &::before, &::after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: '';
+    pointer-events: none;
+    background: radial-gradient(farthest-corner at 180px 60px, #ddd 25%, $orange 125%);
+    transform: rotate(calc(var(--rotation) * 90));
+    mix-blend-mode: overlay;
+    opacity: 1;
+  }
+  &::after{
+    mask: $noise;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 3.5%;
+  padding-top: 0;
+  margin: 0 auto;
+
+  &--grid{
+    display: grid;
+    grid-gap: 1.5vw;
+  }
+}

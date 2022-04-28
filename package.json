@@ -1,0 +1,19 @@
+{
+  "name": "rustic-arcana-theme",
+  "version": "1.0.0",
+  "description": "*Rustic Arcana* is a custom Wordpress theme designed to be used by a music blog. It allows navigation by artist, genre, and year. It was modeled after a series of 1970's [mail order record advertisements](https://clickamericana.com/media/music/old-mail-order-record-clubs-capitol-columbia-vinyl-albums-tapes) for Columbia House.",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "dev": "wp-scripts start",
+    "devFast": "wp-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ross Koeberl",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/scripts": "^22.2.1",
+    "normalize.css": "^8.0.1"
+  }
+}

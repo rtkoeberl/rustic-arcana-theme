@@ -1,0 +1,106 @@
+// Headlines
+
+h1 {
+  font-size: 2.4rem;
+  @media screen and (min-width: $mobile-lg) {
+    font-size: 3rem;
+  }
+}
+h2 {
+  font-size: 1.4rem;
+  @media screen and (min-width: $mobile-lg) {
+    font-size: 1.8rem;
+  }
+}
+h3 {
+  font-size: 1.2rem;
+  @media screen and (min-width: $mobile-lg) {
+    font-size: 1.6rem;
+  }
+}
+h4 {
+  font-size: 1rem;
+  @media screen and (min-width: $mobile-lg) {
+    font-size: 1.4rem;
+  }
+}
+h5 {
+  font-size: 1rem;
+  @media screen and (min-width: $mobile-lg) {
+    font-size: 1.2rem;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  overflow-wrap: normal;
+}
+
+h1, h2, h3, h4, h5 {
+  a {
+    color: $blk1;
+    text-decoration: none;
+  }
+}
+
+// Buttons
+
+.read-more {
+  display: block;
+
+  // position: relative;
+  padding-top: .5em;
+  width: 100%;
+  flex-grow: 1;
+  align-self: flex-end;
+
+  div {
+    display: block;
+
+    width: fit-content;
+    float: right;
+
+    padding: 3px 5px;
+    border: 2px solid $orange;
+    border-radius: 5px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  } 
+}
+
+hr {
+  border-top: 1px solid $blk1;
+  margin: .5em;
+  background-color: none;
+}
+
+// Link Styling
+
+a {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  color: inherit;
+}
+
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+// Images
+img {
+  // filter: grayscale(100%);
+  filter: contrast(80%) brightness(125%) opacity(85%);
+}
+
+.hide {
+  display: none;
+}

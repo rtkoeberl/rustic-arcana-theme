@@ -1,0 +1,346 @@
+// Grid Item
+
+.preview {
+  @include card;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: .5em .75em;
+
+  &--image {
+    flex: 0 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--body {
+    flex: 1 1 42%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .2em;
+  }
+
+  &--content {
+    height: auto;
+  }
+
+  &--metabox {
+    padding-bottom: .2em;
+  }
+
+  &--artist {
+    @include tzimmes();
+  }
+
+  &--title {
+    @include tzimmes(400);
+  }
+
+  &--info {
+    padding-top: .25em;
+    font-size: .85em;
+  }
+
+}
+
+.post-lg {
+  @media screen and (min-width: 400px) {
+    display: block;
+
+    .preview--body {
+      display: block;
+    }
+  }
+
+  .preview--image {
+    width: $img_lg_min;
+    flex-basis: $img_lg_min;
+
+    @media screen and (min-width: 840px) {
+      width: $img_lg_max;
+    }
+
+    @media screen and (min-width: 400px) {
+      float: left;
+      margin: 0 .75em .5em 0;
+    }
+  }
+  
+  .preview--body {
+    min-height: $img_lg_min;
+  }
+}
+
+.post-md {
+  .preview--image {
+    width: $img_md_min;
+    flex-basis: $img_md_min;
+    @media screen and (min-width: 1250px) {
+      width: $img_md_max;
+      flex-basis: $img_md_max;
+    }
+  }
+  .preview--body {
+    min-height: $img_md_min;
+  }
+}
+
+.post-sm {
+  .preview--image {
+    display: none;
+    @media screen and (min-width: 1400px) {
+      display: block;
+      width: $img_sm;
+      flex-basis: $img_sm;
+    }
+  }
+  .preview--body {
+    min-height: calc($img_sm - 20px);
+  }
+  .preview--metabox {
+    margin-bottom: 0;
+  }
+  .preview--sm-box {
+    display: flex;
+    flex-direction: row;
+    .preview--sm-blurb {
+      flex-grow: 3;
+      flex-basis: 100%;
+    }
+    .read-more {
+      float: none;
+      flex-grow: 1;
+      // align-self: flex-end;
+    }
+  }
+}
+
+.preview {
+  &:nth-child(1)  { grid-area: l1; }
+  &:nth-child(2)  { grid-area: l2; }
+  &:nth-child(3)  { grid-area: l3; }
+  &:nth-child(4)  { grid-area: m4; }
+  &:nth-child(5)  { grid-area: m5; }
+  &:nth-child(6)  { grid-area: m6; }
+  &:nth-child(7)  { grid-area: m7; }
+  &:nth-child(8)  { grid-area: m8; }
+  &:nth-child(9)  { grid-area: s9; }
+  &:nth-child(10) { grid-area: s10; }
+  &:nth-child(11) { grid-area: s11; }
+  &:nth-child(12) { grid-area: s12; }
+}
+
+
+// Front Page Grid View
+
+.front-page {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-template:
+  "l1   l1"
+  "l1   l1"
+  "l2   l2"
+  "l2   l2"
+  "l3   l3"
+  "l3   l3"
+  "m4   m4"
+  "m5   m5"
+  "m6   m6"
+  "m7   m7"
+  "m8   m8"
+  "s9   s10"
+  "s11  s12";
+
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+      "l1   l1   l1   l1   l1   l1"
+      "l1   l1   l1   l1   l1   l1"
+      "l2   l2   l2   l2   l2   l2"
+      "l2   l2   l2   l2   l2   l2"
+      "l3   l3   l3   l3   l3   l3"
+      "l3   l3   l3   l3   l3   l3"
+      "m4   m4   m4   m4   s9   s9"
+      "m4   m4   m4   m4   s9   s9"
+      "m4   m4   m4   m4   s9   s9"
+      "m4   m4   m4   m4   s10  s10"
+      "m5   m5   m5   m5   s10  s10"
+      "m5   m5   m5   m5   s10  s10"
+      "m5   m5   m5   m5   s11  s11"
+      "m5   m5   m5   m5   s11  s11"
+      "m6   m6   m6   m6   s11  s11"
+      "m6   m6   m6   m6   s12  s12"
+      "m6   m6   m6   m6   s12  s12"
+      "m6   m6   m6   m6   s12  s12"
+      "m7   m7   m7   m8   m8   m8"
+      "m7   m7   m7   m8   m8   m8";
+  }
+
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+      "l1  l1  l1  info"
+      "l1  l1  l1  m4"
+      "l1  l1  l1  m4"
+      "l2  l2  l2  m4"
+      "l2  l2  l2  m4"
+      "l2  l2  l2  m5"
+      "l3  l3  l3  m5"
+      "l3  l3  l3  m5"
+      "l3  l3  l3  m5"
+      "m6  m7  m7  m7"
+      "m6  m7  m7  m7"
+      "m6  m8  m8  m8"
+      "m6  m8  m8  m8"
+      "s9  s9  s10 s10"
+      "s9  s9  s10 s10"
+      "s11 s11 s12 s12"
+      "s11 s11 s12 s12";
+  }
+
+  .infobox {
+    grid-area: info;
+    display: none;
+    @media screen and (min-width: 1400px) {
+      display: flex;
+    }
+  }
+
+}
+
+// Archive Grid View
+
+.archive{
+  &--headline, &--paginate {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &--headline {
+    width: 65%;
+    margin: 0 auto 1em auto;
+    p {
+      margin-top: .25em;
+    }
+  }
+
+  &--paginate {
+    font-size: 1.25em;
+    margin-top: 1em;
+  }
+
+  &--grid {
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+    "l1   l1"
+    "l2   l2"
+    "l3   l3"
+    "m4   m4"
+    "m5   m5"
+    "m6   m6"
+    "m7   m7"
+    "m8   m8"
+    "s9   s10"
+    "s11  s12";
+
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-template:
+        "l1   l2"
+        "l3   m4"
+        "m5   m6"
+        "m7   m8"
+        "s9   s10"
+        "s11  s12";
+    }
+
+    @media screen and (min-width: 1400px) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-template:
+        "l1   l1   l3  m4"
+        "l2   l2   l3  m4"
+        "m5   m6   m7  m7"
+        "m5   m6   m8  m8"
+        "s9   s9   s11  s12"
+        "s10  s10  s11  s12";
+        .preview {
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5),
+          &:nth-child(6),
+          &:nth-child(11),
+          &:nth-child(12) {
+            flex-direction: column;
+          }
+        }
+    }
+
+  }
+}
+
+// Artist Grid View
+.artist-grid {
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-template:
+  "bio  bio"
+  "l1   l1"
+  "l2   l2"
+  "l3   l3"
+  "m4   m4"
+  "m5   m5"
+  "m6   m6"
+  "m7   m7"
+  "m8   m8"
+  "s9   s10"
+  "s11  s12";
+
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+      "bio  bio"
+      "l1   l2"
+      "l3   m4"
+      "m5   m6"
+      "m7   m8"
+      "s9   s10"
+      "s11  s12";
+  }
+
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+    "bio  bio  l1  l1"
+    "bio  bio  l2  l2"
+    "l3   l3   m4  m4"
+    "m5   m6   m7  m7"
+    "m5   m6   m8  m8"
+    "s9   s9   s11  s12"
+    "s10  s10  s11  s12";
+  }
+  
+
+  .artist-bio {
+    grid-area: bio !important;
+  }
+}

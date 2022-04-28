@@ -1,0 +1,28 @@
+<div class="preview post-sm">
+<div class="preview--image">
+    <?php
+    if ( has_post_thumbnail() ) {
+      ?>
+      <a href="<?= the_permalink(); ?>"><?php the_post_thumbnail('previewSmall'); ?></a>
+      <?php
+    }
+    ?>
+  </div>
+  <div class="preview--body">
+    <div class="preview--content">
+      <div class="preview--metabox">
+        <h5 class="preview--artist"><a href="<?= the_permalink(); ?>"><?php echo get_album_artist(); ?></a></h5>
+        <h5 class="preview--title"><a href="<?= the_permalink(); ?>"><?php echo get_album_title() . get_album_year(); ?></a></h5>
+        <p class="preview--info"><?= get_the_term_list($post, 'genres', '', ', ');?> | <?= get_the_date("n.j.Y"); ?></p>
+      </div>
+      <div class="preview--sm-box">
+        <div class="preview--sm-blurb">
+          <?php
+          the_excerpt();
+          ?>
+        </div>  
+        <div class="read-more"><div><a href="<?= the_permalink(); ?>">Read More &raquo;</a></div></div>
+      </div>
+    </div>
+  </div>
+</div>

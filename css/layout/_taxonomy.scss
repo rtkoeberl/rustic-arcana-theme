@@ -1,0 +1,152 @@
+// Year Archive Grid View
+
+.year {
+  &--headline {
+    width: 100%;
+    margin-bottom: 1em;
+
+    .yearscroll {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 5px;
+      align-items: baseline;
+      text-align: center;
+    }
+    
+    .decade {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        display: block;
+        text-align: center;
+        flex: 1;
+      }
+    }
+  }
+
+  &--list {
+    list-style: none;
+    text-align: center;
+    width: 80%;
+    margin: .75em auto;
+    li {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding-bottom: .5em;
+      ul {
+        padding-top: .25em;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        li {
+          font-size: 1rem;
+          font-weight: 400;
+          display: block;
+          flex: 1;
+          min-width: 65px;
+          @media screen and (min-width: $mobile-md) {
+            min-width: 75px; 
+          }
+          @media screen and (min-width: $tablet-sm) {
+            min-width: 40px; 
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// 
+// Genre Archive Grid View
+
+.genre {
+
+  &--list {
+    padding-left: 1em;
+    padding-bottom: .75em;
+    line-height: 1.35;
+    li {
+      page-break-inside: avoid;
+      break-inside: avoid-column;
+      li {
+        text-indent: .5em;
+      }
+    }
+    &--header {
+      padding-bottom: .5em;
+    }
+  }
+
+  &--grid {
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template:
+    "l1   l1"
+    "l2   l2"
+    "l3   l3"
+    "m4   m4"
+    "m5   m5"
+    "m6   m6"
+    "m7   m7"
+    "m8   m8"
+    "s9   s10"
+    "s11  s12";
+
+    @media screen and (min-width: 1000px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-template:
+        "l1   l2"
+        "l3   m4"
+        "m5   m6"
+        "m7   m8"
+        "s9   s10"
+        "s11  s12";
+    }
+
+    @media screen and (min-width: 1400px) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      grid-template:
+        "l1   l1   l3  tree"
+        "l2   l2   l3  tree"
+        "m4   m5   m6  m6"
+        "m4   m5   m7  m7"
+        "m8   m8   s10  s11"
+        "s9   s9   s10  s11"
+        "s12  s12  🧿    🧿";
+    }
+  }
+
+  &--tree {
+    grid-area: tree !important;
+    display: none;
+    @media screen and (min-width: 1400px) {
+      display: flex;
+    }
+
+    div {
+      min-width: $img_lg_min;
+    }
+  }
+
+  &--columns {
+    width: 100%;
+    column-count: 2;
+    column-gap: 2em;
+    // column-rule: 1px solid $blk3;
+  }
+
+  
+}
+
+//
+// Genre Navigation Page

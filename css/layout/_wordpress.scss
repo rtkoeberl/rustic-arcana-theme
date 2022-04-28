@@ -1,0 +1,179 @@
+//
+// Additional Wordpress Block styling
+.wp-block-embed,
+.wp-block-image {
+  div iframe {
+    min-height: 270px;
+  }
+  figcaption {
+    font-size: .75em;
+    margin-top: .25em;
+    margin-bottom: .5em;
+  }
+}
+.alignleft,
+.alignright,
+.alignwide,
+.alignfull {
+  width: 100%;
+  margin: 0 auto .5em auto;
+  float: none;
+  padding-top: .5em;
+  padding-right: 0;
+  padding-left: 0;
+  figcaption {
+    text-align: center;
+  }
+
+  @media screen and (min-width: $mobile-md) {
+    margin: 0 0 .5em 0;
+  }
+  
+}
+
+.alignleft {
+  @media screen and (min-width: $mobile-md) {
+    float: left;
+    padding-right: .75em;
+  }
+}
+
+.alignright {
+  @media screen and (min-width: $mobile-md) {
+    float: right;
+    padding-left: .75em;
+  }
+}
+
+.alignwide, .alignfull {
+  margin: 0 auto 1em auto;
+  div iframe {
+    width: 100%;
+    height: 75%;
+  }
+}
+
+
+// 
+// Comment Form Styling
+#respond {
+  margin: .75em auto 0;
+  width: 85%;
+}
+// #reply-title { }
+// #cancel-comment-reply-link { }
+#commentform {
+  p {
+    margin-bottom: .25em;
+    label {
+      display: block;
+      @include small-text;
+    }
+    input[type=text] {
+      width: 50%;
+    }
+  }
+}
+
+.comment-form-comment {
+  textarea {
+    display: block;
+    width: 100%;
+    resize: vertical;
+  }
+}
+
+.comment-form-cookies-consent label {
+  display: inline !important;
+}
+
+.form-submit {
+  #submit {
+    font-family: inherit;
+    font-size: inherit;
+    color: $blk3;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: .5em 1em;
+    border-radius: 5px;
+  }
+}
+
+#cancel-comment-reply-link {
+  @include small-text;
+  &::before {
+    content: '(';
+  }
+  &::after {
+    content: ')';
+  }
+}
+
+// 
+// Comment Styling
+.comments {
+  @include card;
+  width: 100%;
+  display: block;
+
+  &--title {
+    text-align: center;
+    margin: 0 auto .5em;
+  }
+}
+
+.required-field-message {
+  display: none;
+}
+
+.comment {
+  width: auto;
+  padding: 0 1em;
+  margin-bottom: 1.5em;
+
+  &--avatar {
+    float: left;
+    padding-right: .75em;
+  }
+
+  &--content {
+    > * {
+      margin-bottom: .25em;
+    }
+  }
+
+  .reply {
+    @include small-text;
+  }
+
+  .timecode {
+    @include small-text;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .depth-2, .depth-3, .depth-4, .depth-5 {
+    margin-top: 1em;
+    border-left: 3px solid $blk3;
+  }
+
+  // .alt {}
+  // .odd {}
+  // .even {}
+  // .thread-alt {}
+  // .thread-odd {}
+  // .thread-even {}
+  // li ul.children .alt {}
+  // li ul.children .odd {}
+  // li ul.children .even {}
+
+  
+  // .comment {}
+  // .children {}
+  // .pingback {}
+  // .bypostauthor {}
+  // .comment-author {}
+  // .comment-author-admin {}
+}

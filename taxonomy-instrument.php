@@ -1,0 +1,1 @@
+<!-- This is same as archive-artist but default sorted to instrument and with instrument name bolded -->

@@ -1,0 +1,199 @@
+// Page.php
+.page {
+  .post {
+    min-width: 400px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &--title {
+    text-align: center;
+  }
+}
+
+// Single.php
+.single {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet-lg) {
+    flex-direction: row;
+  }
+
+  &--main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+  }
+}
+
+.post {
+  @include card;
+  width: 100%;
+  display: block;
+  
+  &--image {
+    flex: 0 0;
+    width: 220px;
+    float: left;
+    margin: 0 .75em .5em 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &--body {
+    flex: 1 1 42%;
+    width: 100%;
+
+    font-size: 17px;
+
+    > * {
+      padding: 0 10px;
+    }
+    
+    &::after {
+      position: absolute;
+    }
+  }
+
+  &--metabox {
+    padding-bottom: .5em;
+  }
+
+  &--artist {
+    @include tzimmes(800);
+  }
+
+  &--title {
+    font-weight: 700;
+    font-family: 'Overpass', sans-serif;
+    margin-top: .25rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &--info {
+    // font-style: italic;
+    margin-top: -.35em;
+    margin-top: .25rem;
+  }
+
+  &--content {
+    line-height: 1.5;
+    p {
+      margin-bottom: 1em;      
+    }
+
+  }
+
+  &--tags {
+    p {
+      margin-bottom: 0.35em;
+    }
+  }
+}
+
+.related {
+
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  &:empty {
+    width: 0px;
+    display: none;
+  }
+
+  @media screen and (min-width: $tablet-lg) {
+    flex-direction: column;
+    max-width: 24%;
+  }
+
+  &--cat {
+    width: 100%;
+    font-style: italic;
+    text-align: center;
+    padding-bottom: .5em;
+  }
+
+  &--box {
+    flex: 1 1 212px;
+    background: $pearl;
+    padding: 1em;
+    border-radius: 7px;
+    max-width: 50%;
+    // min-width: 250px;
+    height: fit-content;
+
+    font-weight: 400;
+    font-size: 1rem;
+
+    @media screen and (min-width: $mobile-md) {
+      flex: 1 1 250px;
+    }
+
+    @media screen and (min-width: $tablet-lg) {
+      flex: 0;
+      max-width: 100%;
+    } 
+  }
+
+  &--post {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: .5em .5em;
+
+    @media screen and (min-width: $tablet-lg) {
+      flex-direction: column;
+    } 
+
+    @media screen and (min-width: $expanded) {
+      display: block;
+    }
+
+    .preview--image {
+      display: none;
+
+      @media screen and (min-width: $mobile-md) {
+        display: block;
+        width: 100px;
+        flex-basis: 100px;
+      }
+
+      @media screen and (min-width: $expanded) {
+        float: left;
+        margin: 0 .75em .5em 0;
+        width: 100px;
+      }
+    }
+
+    .preview--body {
+      @media screen and (min-width: $expanded) {
+        display: block;
+      }
+    }
+
+    .preview--content {
+      display: none;
+      @media screen and (min-width: $mobile-lg) {
+        display: block;
+      }
+      @media screen and (min-width: $tablet-lg) {
+        display: none;
+      }
+      @media screen and (min-width: $desktop) {
+        display: block;
+      }
+    }
+  }
+
+}
